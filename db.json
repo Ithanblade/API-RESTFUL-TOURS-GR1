@@ -1,9 +1,29 @@
 {
-    "tours":[
-        {
-            "id":1,
-            "name":"Baños"
-        }
-    ],
-    "users":[]
+  "tours": [
+    {
+      "id": "4f21cb8e-3a00-4a26-bcca-a3ebe2d27f8d",
+      "name": "Tour Cuenca",
+      "price": "600",
+      "status": "active"
+    },
+    {
+      "id": "33e4b1b9-6483-471a-b194-666b39d6bc52",
+      "name": "Tour Baños",
+      "price": "250",
+      "status": "active"
+    },
+    {
+      "id": "cf03f47f-f951-4bfe-888a-47fad340a424",
+      "name": "Tour Quito",
+      "price": "75",
+      "status": "active"
+    },
+    {
+      "name": "Tour Mitad Del Mundo",
+      "price": "200",
+      "status": "desactive",
+      "id": "56855324-9d0a-4ced-98fe-687c0524beed"
+    }
+  ],
+  "users": []
 }
