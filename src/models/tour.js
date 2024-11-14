@@ -48,6 +48,25 @@ const tourModel = {
         //4. Mandar respuesta al controlador
         return data 
         
+    },
+
+    //DELETE
+    async deleteTourModel (tourId) {
+        //1. Conexion BDD
+        const url = `http://localhost:4000/tours/${tourId}`
+
+        //2. Enviar data a BDD
+        const peticion = await fetch(url,{
+            method:"DELETE",
+            headers:{"Content-Type":"application/json"}
+        })
+
+        //3. Obtener respuesta de BDD
+        const data = await peticion.json()
+
+        //4. Mandar respuesta al controlador
+        return data 
+        
     }
 
 }

@@ -44,11 +44,24 @@ const updateTourController = async(req,res)=> {
 
 }
 
+const deleteTourController = async(req,res)=> {
 
+  const{id}= req.params
+
+  try {
+    await tourModel.deleteTourModel(id)
+    res.status(200).json({msg:"Tour eliminado correctamente"})
+    
+  } catch (error) {
+    res.status(500).json(error)
+  }
+
+}
 
 //Exportacion nombrada
 export{
     getAllToursController,
     createTourController,
-    updateTourController
+    updateTourController,
+    deleteTourController
 }

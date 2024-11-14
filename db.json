@@ -17,12 +17,6 @@
       "name": "Tour Quito",
       "price": "75",
       "status": "active"
-    },
-    {
-      "name": "Tour Mitad Del Mundo",
-      "price": "200",
-      "status": "desactive",
-      "id": "56855324-9d0a-4ced-98fe-687c0524beed"
     }
   ],
   "users": []
