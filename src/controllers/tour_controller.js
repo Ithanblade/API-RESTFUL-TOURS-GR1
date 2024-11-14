@@ -12,7 +12,17 @@ const getAllToursController = async(req,res) => {
   }
 }
 
+const searchToursController = async(req,res)=>{
 
+  const{id}= req.params
+  try {
+    const tour = await tourModel.searchToursModel(id)
+    res.status(200).json(tour)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+
+}
 
 
 const createTourController =async(req,res)=> {
@@ -63,5 +73,6 @@ export{
     getAllToursController,
     createTourController,
     updateTourController,
-    deleteTourController
+    deleteTourController,
+    searchToursController
 }

@@ -67,8 +67,19 @@ const tourModel = {
         //4. Mandar respuesta al controlador
         return data 
         
-    }
+    },
 
+    //BUSCAR
+    async searchToursModel(tourId){
+        try {
+            const peticion = await fetch(`http://localhost:4000/tours/${tourId}`)
+            const tours = await peticion.json()
+            return tours
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 export default tourModel
