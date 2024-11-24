@@ -17,7 +17,28 @@
       "name": "Tour Quito",
       "price": "75",
       "status": "active"
+    },
+    {
+      "id": "eaa7812d-a992-48b6-8adb-eaf93752e18e",
+      "name": "Tour España",
+      "price": "1100",
+      "status": "active"
     }
   ],
-  "users": []
+  "users": [
+    {
+      "id": "1",
+      "name": "Ithan",
+      "username": "ithan0902",
+      "email": "ithan@gmail.com",
+      "password": "apiweb"
+    },
+    {
+      "id": "ed28760b-713e-45a8-9bd9-6e53282ec021",
+      "password": "$2b$10$AEbR3IpnNzFYtrHBPxuVAeVm6fKEU.5aQehIgZ074FOQKPiWq4SA.",
+      "name": "Joe",
+      "username": "joe",
+      "email": "joe@gmail.com"
+    }
+  ]
 }
