@@ -15,23 +15,22 @@ const userModel = {
     }
     ,
     
-    async loginUserModel (username,password){
-        const url = "http://localhost:4000/users";
-        const response = await fetch(url)
-        const users = await response.json()
-
+    async loginUserModel(username,password){
+        const url = "http://localhost:4000/users"
+        const peticion = await fetch(url)
+        const users = await peticion.json()
         const user = users.find(user => user.username === username)
         if(!user){
-            return {error:"Username or password erroneos"}
+            return {error:"Username o password bad"}
         }
         const passwordMatch = await bcrypt.compare(password,user.password)
-        if(user && passwordMatch){
+        if (user && passwordMatch){
             return user
-        }else{
-            return {error:"Username or password erroneos"}
         }
-
-}
+        else{
+            return {error:"Username o password bad"}
+        }
+    }
 }
 
 

@@ -22,14 +22,17 @@ const registerUserController = async (req, res) => {
     }
 }
 
-const loginUserController = async (req, res) => {
-    const {username, password} = req.body
-    try {
-        const user = await userModel.loginUserModel(username, password)
-        delete user.password
-        const token = createToken({id:user.id,username:user.username})
+const loginUserController = async (req,res) => {
 
-        res.status(201).json({user,token})
+    const {username,password} = req.body
+
+    try {
+        
+        const user = await userModel.loginUserModel(username,password)
+
+        const token = createToken(user)
+
+        res.status(200).json({user,token})
 
     } catch (error) {
         res.status(500).json(error)
