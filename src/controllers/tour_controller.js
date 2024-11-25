@@ -1,5 +1,8 @@
 import tourModel from '../models/tour.js'
 import { v4 as uuidv4 } from 'uuid';
+import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs-extra'
+
 
 const getAllToursController = async(req,res) => {
   try {
@@ -33,7 +36,16 @@ const createTourController =async(req,res)=> {
   }
 
   try {
+
+    const cloudinaryResponse = cloudinary.uploader.upload(req.files.imagen.tempFilePath,{folder:'tours'})
+
+    newTourData.image = (await cloudinaryResponse).secure_url
+    newTourData.public_id = (await cloudinaryResponse).public_id
+
     const tour = await tourModel.createTourModel(newTourData)
+
+    await fs.unlink(req.files.imagen.tempFilePath)
+
     res.status(201).json(tour)
   } catch (error) {
     res.status(500).json(error)
@@ -59,6 +71,12 @@ const deleteTourController = async(req,res)=> {
   const{id}= req.params
 
   try {
+
+    const tourFind = await tourModel.searchToursModel(id)
+
+    cloudinary.uploader.destroy(tourFind.public_id)
+
+
     await tourModel.deleteTourModel(id)
     res.status(200).json({msg:"Tour eliminado correctamente"})
     

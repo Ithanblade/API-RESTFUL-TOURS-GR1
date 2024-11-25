@@ -1,8 +1,12 @@
+import dotenv from "dotenv"
+
+dotenv.config()
+
 const tourModel = {
     //READ
     async getAllToursModel(){
         try {
-            const peticion = await fetch('http://localhost:4000/tours')
+            const peticion = await fetch(process.env.URL_BDD_TOURS)
             const tours = await peticion.json()
             return tours
 
@@ -14,7 +18,8 @@ const tourModel = {
     // CREATE
     async createTourModel(newTour){
         //1. Conexion BDD
-        const url = "http://localhost:4000/tours";
+        console.log(process.env.URL_BDD_TOURS)
+        const url = process.env.URL_BDD_TOURS;
 
         //2. Enviar data a BDD
         const peticion = await fetch(url,{
@@ -33,7 +38,7 @@ const tourModel = {
     //UPDATE
     async updateTourModel (tourId,updatedTour) {
         //1. Conexion BDD
-        const url = `http://localhost:4000/tours/${tourId}`
+        const url = `${process.env.URL_BDD_TOURS}/${tourId}`
 
         //2. Enviar data a BDD
         const peticion = await fetch(url,{
@@ -53,7 +58,7 @@ const tourModel = {
     //DELETE
     async deleteTourModel (tourId) {
         //1. Conexion BDD
-        const url = `http://localhost:4000/tours/${tourId}`
+        const url = `${process.env.URL_BDD_TOURS}/${tourId}`
 
         //2. Enviar data a BDD
         const peticion = await fetch(url,{
@@ -72,7 +77,7 @@ const tourModel = {
     //BUSCAR
     async searchToursModel(tourId){
         try {
-            const peticion = await fetch(`http://localhost:4000/tours/${tourId}`)
+            const peticion = await fetch(`${process.env.URL_BDD_TOURS}/${tourId}`)
             const tours = await peticion.json()
             return tours
 

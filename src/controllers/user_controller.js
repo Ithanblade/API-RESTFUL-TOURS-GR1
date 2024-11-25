@@ -29,7 +29,7 @@ const loginUserController = async (req,res) => {
     try {
         
         const user = await userModel.loginUserModel(username,password)
-
+        
         const token = createToken(user)
 
         res.status(200).json({user,token})
